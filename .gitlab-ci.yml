@@ -1,0 +1,12 @@
+variables:
+  MAVEN_OPTS: >-
+    -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
+
+image: maven:3-eclipse-temurin-17-alpine #latest
+
+cache:
+  paths:
+    - .m2/repository/
+
+test:
+  script: mvn test
